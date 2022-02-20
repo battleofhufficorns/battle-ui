@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { NFT } from "./pages/Minting";
 import {
   Card,
   CardHeader,
@@ -8,35 +9,45 @@ import {
 } from "react-simple-card";
 
 export default function NFTForm(props) {
+var address = "bhaiya";
+function hashIt(password) {
+        let arr = password.toString().split('');
+        return arr.reduce(
+          (hashCode, currentVal) =>
+            (hashCode = currentVal.charCodeAt(0) + (hashCode << 6) + (hashCode << 16) - hashCode),
+          0
+        );
+  }
+
   function mintNFT(value) {
-    console.log("This is the value", value);
+    var speed = Math.floor(Math.random() * 10);
+    var xp = Math.floor(Math.random() * 10);
+    var power = Math.floor(Math.random() * 10);
+    var hashValue = hashIt(speed+xp+power);
+    localStorage.setItem(
+      address,
+      JSON.stringify(
+        new NFT(
+          props.data.iq,
+          props.data.name,
+          props.data.description,
+          xp,
+          speed,
+          power,
+          hashValue
+        )
+      )
+    );
   }
 
   return (
     <Card>
       <CardHeader className="headline">{props.data.name}</CardHeader>
       <ImageHeader
+        className="imageProp"
         imageSrc={props.data.imageUri}
-        width="300"
-        height="125"
       ></ImageHeader>
-      <CardBody>{props.data.description}</CardBody>
-      <CardFooter>
-        <table>
-          <tr>
-            <td>Iq </td>
-            <td>{props.data.iq}</td>
-          </tr>
-          <tr>
-            <td>Speed </td>
-            <td>{props.data.speed}</td>
-          </tr>
-          <tr>
-            <td>Power </td>
-            <td>{props.data.power}</td>
-          </tr>
-        </table>
-      </CardFooter>
+      <CardBody>Description:- {props.data.description}</CardBody>
       <button onClick={() => mintNFT(props)}>Mint</button>
     </Card>
   );
