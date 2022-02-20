@@ -5,7 +5,6 @@ import {
   CardHeader,
   ImageHeader,
   CardBody,
-  CardFooter,
 } from "react-simple-card";
 
 export default function NFTForm(props) {
