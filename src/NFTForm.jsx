@@ -5,6 +5,7 @@ import { Card, CardHeader, ImageHeader, CardBody } from "react-simple-card";
 export default function NFTForm(props) {
   var address = "bhaiya";
   const [property, setProperty] = useState("");
+  const [gameValue, setGameValue] = useState("");
   function hashIt(password) {
     let arr = password.toString().split("");
     return arr.reduce(
@@ -39,9 +40,9 @@ export default function NFTForm(props) {
     );
   }
 
-  function createGame(value,property) {
+  function createGame(value, property, gameValue) {
     console.log(localStorage.getItem("bhaiya"));
-    console.log(property);
+    console.log(property, gameValue);
   }
 
   return (
@@ -55,13 +56,33 @@ export default function NFTForm(props) {
       {!props.data.mynft ? (
         <button onClick={() => mintNFT(props)}>Mint</button>
       ) : (
-        <><button onClick={() => createGame(props,property)}>Create Game</button><label>
-            Enter the property to create game:
-            <input
-              type="text"
-              value={property}
-              onChange={(e) => setProperty(e.target.value)} />
-          </label></>
+        <>
+          <table>
+            <tr>
+              <td>Enter the property</td>
+              <td>
+                <input
+                  type="text"
+                  value={property}
+                  onChange={(e) => setProperty(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Creator Attribute Value</td>
+              <td>
+                <input
+                  type="text"
+                  value={gameValue}
+                  onChange={(e) => setGameValue(e.target.value)}
+                />
+              </td>
+            </tr>
+          </table>
+          <button onClick={() => createGame(props, property, gameValue)}>
+            Create Game
+          </button>
+        </>
       )}
     </Card>
   );
