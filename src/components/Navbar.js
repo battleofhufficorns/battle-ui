@@ -30,9 +30,6 @@ const Navbar= () =>{
             <li>
               <Link to="/nft">My NFT</Link>
             </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
           </ul>
 
         </div>

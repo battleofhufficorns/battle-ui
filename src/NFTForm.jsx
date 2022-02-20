@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 export default function NFTForm(props) {
-  var address = "bhaiya";
+  var address = "test1";
   let history = useHistory();
   const [property, setProperty] = useState("");
   const [gameValue, setGameValue] = useState("");
@@ -44,7 +44,7 @@ export default function NFTForm(props) {
   }
 
   function createGame(props, property, gameValue) {
-    console.log(localStorage.getItem("bhaiya"));
+    console.log(localStorage.getItem("test1"));
     console.log(property, gameValue);
     alert("Game Created");
     history.push("/");
