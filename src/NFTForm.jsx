@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NFT } from "./pages/Minting";
 import { Card, CardHeader, ImageHeader, CardBody } from "react-simple-card";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 export default function NFTForm(props) {
@@ -48,50 +47,51 @@ export default function NFTForm(props) {
     console.log(property, gameValue);
     alert("Game Created");
     history.push("/");
-
   }
 
   return (
-    <Card>
+    <Card className="headline">
       <CardHeader className="headline">{props.data.name}</CardHeader>
       <ImageHeader
         className="imageProp"
         imageSrc={props.data.imageUri}
       ></ImageHeader>
-      <CardBody>Description:- {props.data.description}</CardBody>
-      {!props.data.mynft ? (
-        <button onClick={() => mintNFT(props)}>Mint</button>
-      ) : (
-        <>
-          <table>
-            <tbody>
-              <tr>
-                <td>Enter the property</td>
-                <td>
-                  <input
-                    type="text"
-                    value={property}
-                    onChange={(e) => setProperty(e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Creator Attribute Value</td>
-                <td>
-                  <input
-                    type="text"
-                    value={gameValue}
-                    onChange={(e) => setGameValue(e.target.value)}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button onClick={() => createGame(props, property, gameValue)}>
-            Create Game
-          </button>
-        </>
-      )}
+      <CardBody className="cardbody">
+        Description:- {props.data.description}
+        {!props.data.mynft ? (
+          <button onClick={() => mintNFT(props)}>Mint</button>
+        ) : (
+          <>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Enter the property</td>
+                  <td>
+                    <input
+                      type="text"
+                      value={property}
+                      onChange={(e) => setProperty(e.target.value)}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Creator Attribute Value</td>
+                  <td>
+                    <input
+                      type="text"
+                      value={gameValue}
+                      onChange={(e) => setGameValue(e.target.value)}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button onClick={() => createGame(props, property, gameValue)}>
+              Create Game
+            </button>
+          </>
+        )}
+      </CardBody>
     </Card>
   );
 }

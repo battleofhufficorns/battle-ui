@@ -20,13 +20,33 @@ code {
 .headline{
   text-align: center;
   font-weight: bold;
+  color: white;
   font-size: 58;
-  margin-top: 2;
+  background-color:cornflowerblue;
+  margin-top: 40px;
+  width: 200;
+}
+
+.cardbody{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 58;
+  background-color:cornflowerblue;
+  width: 200;
+}
+
+.tagline{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 58;
+  margin-top: 15px;
   width: 200;
 }
 
 .imageProp{
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
 }
 
