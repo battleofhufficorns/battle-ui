@@ -16,24 +16,27 @@ const Navbar= () =>{
   
   return (
     <header className="header">
-        <div class="left">
+        <div className="left">
           <a href="#">Hufficorns</a>
         </div>
-        <div class="mid">
-          <ul class="navbar">
+        <div className="mid">
+          <ul className="navbar">
             <li>
               <Link to="/">Mint</Link>
             </li>
             <li>
-              <Link to="/cats">Join</Link>
+              <Link to="/join">Join</Link>
             </li>
             <li>
-              <Link to="/sheeps">Create</Link>
+              <Link to="/nft">My NFT</Link>
+            </li>
+            <li>
+              <Link to="/create">Create</Link>
             </li>
           </ul>
 
         </div>
-        <div class="right">
+        <div className="right">
           <button onClick={() => getLibrary()}>Connect</button>
         </div>
 

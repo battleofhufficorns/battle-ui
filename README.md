@@ -1,1 +1,1 @@
-
+Battle of hufficorns: first game to implement and verify the user's authenticity using Zero Knowledge on built on top of Harmony

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const Goats = () =>{
+const Join = () =>{
   return (
     <div>
       <h3>Goat</h3>
@@ -12,4 +12,4 @@ const Goats = () =>{
     </div>
   );
 }
-export default Goats;
+export default Join;

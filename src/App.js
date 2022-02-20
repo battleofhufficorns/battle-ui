@@ -1,20 +1,20 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Minting from "./pages/Minting";
-import Cats from "./pages/Creating";
-import Sheeps from "./pages/BackUp";
-import Goats from "./pages/Joining";
+import Mint from "./pages/Minting";
+import Create from "./pages/Creating";
+import NFT from "./pages/MyNFT";
+import Join from "./pages/Joining";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Minting} />
-        <Route path="/cats" component={Cats} />
-        <Route path="/sheeps" component={Sheeps} />
-        <Route path="/goats" component={Goats} />
+        <Route path="/" exact component={Mint} />
+        <Route path="/create" component={Create} />
+        <Route path="/nft" component={NFT} />
+        <Route path="/join" component={Join} />
       </Switch>
     </Router>
   );

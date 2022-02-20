@@ -32,7 +32,7 @@ const nft = new NFT(
   "Mint your NFT and get your superpowers"
 );
 
-const Minting = () => {
+const Mint = () => {
   const [spacing] = React.useState(2);
   const classes = useStyles();
   var arr = [];
@@ -52,4 +52,4 @@ const Minting = () => {
     </div>
   );
 };
-export default Minting;
+export default Mint;
