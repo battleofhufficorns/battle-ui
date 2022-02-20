@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { NFT } from "./pages/Minting";
 import { Card, CardHeader, ImageHeader, CardBody } from "react-simple-card";
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function NFTForm(props) {
   var address = "bhaiya";
+  let history = useHistory();
   const [property, setProperty] = useState("");
   const [gameValue, setGameValue] = useState("");
   function hashIt(password) {
@@ -40,9 +43,12 @@ export default function NFTForm(props) {
     );
   }
 
-  function createGame(value, property, gameValue) {
+  function createGame(props, property, gameValue) {
     console.log(localStorage.getItem("bhaiya"));
     console.log(property, gameValue);
+    alert("Game Created");
+    history.push("/");
+
   }
 
   return (
@@ -58,26 +64,28 @@ export default function NFTForm(props) {
       ) : (
         <>
           <table>
-            <tr>
-              <td>Enter the property</td>
-              <td>
-                <input
-                  type="text"
-                  value={property}
-                  onChange={(e) => setProperty(e.target.value)}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Creator Attribute Value</td>
-              <td>
-                <input
-                  type="text"
-                  value={gameValue}
-                  onChange={(e) => setGameValue(e.target.value)}
-                />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Enter the property</td>
+                <td>
+                  <input
+                    type="text"
+                    value={property}
+                    onChange={(e) => setProperty(e.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Creator Attribute Value</td>
+                <td>
+                  <input
+                    type="text"
+                    value={gameValue}
+                    onChange={(e) => setGameValue(e.target.value)}
+                  />
+                </td>
+              </tr>
+            </tbody>
           </table>
           <button onClick={() => createGame(props, property, gameValue)}>
             Create Game
